@@ -19,7 +19,7 @@ namespace double_linked_list
         //point to the precceeding node
         public Node prev;
     }
-     class DoubleLinkedList
+    class DoubleLinkedList
     {
         Node START;
 
@@ -41,15 +41,15 @@ namespace double_linked_list
             newNode.name = nm;
 
             //check if the list empty
-            if(START == null || nim <= START.noMhs)
+            if (START == null || nim <= START.noMhs)
             {
-                if((START != null) && (nim == START.noMhs))
+                if ((START != null) && (nim == START.noMhs))
                 {
                     Console.WriteLine("\nDuplicate number not allowed");
                     return;
                 }
                 newNode.next = START;
-                if(START != null)
+                if (START != null)
                     START.prev = newNode;
                 newNode.prev = null;
                 START = newNode;
@@ -61,7 +61,7 @@ namespace double_linked_list
                 current != null && nim >= current.noMhs;
                 previous = current, current = current.next)
             {
-                if(nim == current.noMhs)
+                if (nim == current.noMhs)
                 {
                     Console.WriteLine("\nDuplictae roll numbes not allowed");
                     return;
@@ -74,7 +74,7 @@ namespace double_linked_list
             newNode.prev = previous;
 
             //if the node is to be insarted at the end of the list
-            if(current == null)
+            if (current == null)
             {
                 newNode.next = null;
                 previous.next = newNode;
@@ -88,7 +88,7 @@ namespace double_linked_list
             for (previous = current = START; current != null &&
                 rollNo != current.noMhs; previous = current,
                 current = current.next) { }
-            return (current!= null);
+            return (current != null);
         }
         public bool dellNode(int rollNo)
         {
@@ -134,12 +134,48 @@ namespace double_linked_list
                     Console.Write(currentNode.noMhs + "" + currentNode.name + "\n");
             }
         }
-        
-    }
-     class Program
-    {
-        static void Main(string[] args)
+
+        public void descending()
         {
+            if (listEmpty())
+                Console.WriteLine("\nList is Empty");
+            else
+            {
+                Console.WriteLine("\nRecord in the ascending order of" + "roll number are:\n");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next) { }
+
+                while (currentNode != null)
+                {
+                    Console.Write(currentNode.noMhs + "" + currentNode.name + "\n");
+                    currentNode = currentNode.prev;
+                }
+
+            }
+        }
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                DoubleLinkedList obj = new DoubleLinkedList();
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("\nMenu");
+                        Console.WriteLine("1. Add a record to the list");
+                        Console.WriteLine("2. Delete a record from the list ");
+                        Console.WriteLine("3. View all records in the ascending order of roll numbers");
+                        Console.WriteLine("4. View all records in the descending order of roll numbers");
+                        Console.WriteLine("5. Search for a record in the list");
+                        Console.WriteLine("6. Exit\n");
+                        Console.Write("Enter your choicce (1-6): ");
+                        char ch = Convert.ToChar(Console.ReadLine());
+
+
+                    }
+                }
+            }
         }
     }
 }
