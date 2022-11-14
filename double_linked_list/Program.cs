@@ -9,6 +9,9 @@ namespace double_linked_list
     class Node
     {
 
+    }
+     class Program
+    {
         static void Main(string[] args)
         {
         }
